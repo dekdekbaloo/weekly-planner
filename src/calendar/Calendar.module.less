@@ -1,0 +1,27 @@
+.weekContainer {
+  @height: 50px;
+
+  display: flex;
+  height: @height;
+  line-height: @height;
+  &:not(:first-child) {
+    margin-top: -1px;
+  }
+}
+
+.dateCellContainer {
+  @border: 1px solid rgba(0, 0, 0, 10%);
+  flex: 1 1 14.29%;
+  text-align: center;
+  border-bottom: @border;
+  
+  &.otherMonth .date {
+    opacity: 0.5;
+  }
+  
+  &:not(:first-child) {
+    border-left: @border;
+    margin-left: -1px;
+  }
+}
+
