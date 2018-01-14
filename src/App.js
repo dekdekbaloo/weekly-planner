@@ -28,11 +28,6 @@ class App extends React.Component {
     return (
       <Layout>
         <Calendar />
-        <List className='app__main-content'>
-          <List.Item>
-            <Button onClick={this.toggleCalendar}>Calendar</Button>
-          </List.Item>
-        </List>
         <BottomPane
           title='Week plan'
           visible={this.state.shouldShowBottomPane}

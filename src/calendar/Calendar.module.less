@@ -1,26 +1,57 @@
-.weekContainer {
-  @height: 50px;
+.calendar {
+  height: 100%;
+  overflow: auto;
+}
 
+.weekContainer {
+  @height: 60px;
+  
   display: flex;
   height: @height;
   line-height: @height;
   &:not(:first-child) {
     margin-top: -1px;
+  }  
+}
+
+.monthHeader {
+  padding: 15px 0;
+  text-align: center;
+}
+
+.monthContainer {
+  border-bottom: 1px solid darkgray;  
+
+  &:last-child {
+    height: 200vh;
   }
 }
 
+.daysOfWeek {
+  @height: 45px;
+  display: flex;
+  height: @height;
+  line-height: @height;
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 1;
+  border-bottom: 1px solid darkgray;
+}
+
 .dateCellContainer {
-  @border: 1px solid rgba(0, 0, 0, 10%);
   flex: 1 1 14.29%;
   text-align: center;
-  border-bottom: @border;
   
+  &.active {
+    background: darken(white, 10%);
+  }
+
   &.otherMonth .date {
     opacity: 0.5;
   }
   
   &:not(:first-child) {
-    border-left: @border;
     margin-left: -1px;
   }
 }
