@@ -68,7 +68,7 @@ class Calendar extends React.Component {
                 <div
                   className={cx(styles.weekContainer, {
                     [styles.inactive]: this.state.selectedTime &&
-                        weekStart.week() > this.state.selectedTime.week()
+                      weekStart.week() > this.state.selectedTime.week()
                   })}
                   key={w}
                 >

@@ -21,20 +21,20 @@ class App extends React.Component {
     this.setState({ shouldShowBottomPane: false })
   }
   selectDate = (value) => {
-    this.setState({ selectedDate: value })
+    this.setState({ selectedDate: moment(value) })
     this.openBottomPane()
   }
   render () {
     return (
       <Layout>
-        <Calendar onSelect={this.openBottomPane} />
+        <Calendar onSelect={this.selectDate} />
         <BottomPane
           title='Week plan'
           visible={this.state.shouldShowBottomPane}
           onClose={this.closeBottomPane}
         >
-          {Array(7).fill().map((x, i) => (
-            <List renderHeader={() => moment().day(i).format('dddd D MMM')} key={i}>
+          {this.state.selectedDate && Array(7).fill().map((x, i) => (
+            <List renderHeader={() => this.state.selectedDate.day(i).format('dddd D MMM')} key={i}>
               <TextareaItem title={<Checkbox />} defaultValue='deez dooz' autoHeight />
             </List>
           ))}

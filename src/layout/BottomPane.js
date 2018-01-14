@@ -7,10 +7,12 @@ class BottomPane extends React.Component {
     title: PropTypes.any,
     visible: PropTypes.bool,
     children: PropTypes.node,
-    onClose: PropTypes.func
+    onClose: PropTypes.func,
+    top: PropTypes.any
   }
   static defaultProps = {
-    onClose: () => { }
+    onClose: () => { },
+    top: '50vh'
   }
   state = { fullscreen: false }
   componentWillReceiveProps (nextProps) {
@@ -27,9 +29,10 @@ class BottomPane extends React.Component {
       <div
         className='app__bottom-pane'
         style={{
-          height: this.state.fullscreen ? '100vh' : '50vh',
+          height: '100vh',
           background: 'white',
           position: 'fixed',
+          top: this.props.top,
           left: 0,
           right: 0,
           bottom: 0,
