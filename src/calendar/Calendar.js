@@ -8,11 +8,13 @@ import smoothScroll from '../util/smoothScroll'
 
 class Calendar extends React.Component {
   static propTypes = {
-    mode: PropTypes.oneOf([ 'year', 'month' ])
+    mode: PropTypes.oneOf([ 'year', 'month' ]),
+    onSelect: PropTypes.func
   }
 
   static defaultProps = {
-    mode: 'month'
+    mode: 'month',
+    onSelect: () => {}
   }
 
   state = {
@@ -32,6 +34,7 @@ class Calendar extends React.Component {
         this.activeDateCell.offsetTop - (this.daysOfWeekBar.clientHeight + 45),
         1000
       )
+      this.props.onSelect(selectedTime)
     })
   }
 

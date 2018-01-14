@@ -3,7 +3,7 @@ import Layout from './layout/Layout'
 import BottomPane from './layout/BottomPane'
 import Calendar from './calendar/Calendar'
 import * as moment from 'moment'
-import { List, Checkbox, Button, TextareaItem } from 'antd-mobile'
+import { List, Checkbox, TextareaItem } from 'antd-mobile'
 
 class App extends React.Component {
   state = {
@@ -27,7 +27,7 @@ class App extends React.Component {
   render () {
     return (
       <Layout>
-        <Calendar />
+        <Calendar onSelect={this.openBottomPane} />
         <BottomPane
           title='Week plan'
           visible={this.state.shouldShowBottomPane}
